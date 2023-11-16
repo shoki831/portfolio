@@ -1,144 +1,273 @@
 @charset "utf-8";
 
-body{
-    font-family: 'Inter', sans-serif;
-    max-width: 100vw;
+/* @reset
+----------------------------------------------------------*/
+*, *:before, *:after { box-sizing:border-box; }
+
+html, body, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd,p,
+figure, figcaption, form, textarea, fieldset, legend, blockquote { margin:0; padding:0; border:none; }
+
+h1, h2, h3, h4, h5, h6 { font-size:100%; font-weight:bold; }
+
+footer, header, hgroup, main, menu, nav, section,
+article, aside, details, summary, figcaption, figure { display: block; }
+
+table { border-collapse:collapse; border-spacing:0; }
+ul, ol { padding:0; list-style:none; }
+em { font-style: normal; }
+
+img { height:auto; font-size:0; line-height:0; vertical-align:bottom; border-width:0; }
+
+input, button, select, textarea { font:inherit; }
+button { margin:0; padding:0; border:none; border-radius:0; background:none; -webkit-appearance:none; cursor:pointer; }
+input[type="submit"],input[type="button"],input[type="reset"] { cursor: pointer; }
+
+/* @base
+----------------------------------------------------------*/
+html, body { height: 100%; }
+
+html {
+  background: #F8F8F8;
 }
-a{
-    text-decoration: none;
-    color: #000;
+body {
+  font-family:
+  "游ゴシック体", "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic",
+  "メイリオ", "Meiryo","ヒラギノ角ゴ Pro W3",
+  "Hiragino Kaku Gothic Pro", Osaka, sans-serif;
+  letter-spacing: .07em;
+  color: #393939;
+  background-color: #F8F8F8;
 }
-main{
-    width: 100vw;
-    margin: 0 auto;
+body p{
+  font-size: 14px;
 }
-main{
-    /* background-color: blueviolet; */
+.flex{
+    display:-webkit-flex; 
+    display:flex; 
+    -webkit-flex-wrap:wrap; 
+    flex-wrap:wrap; 
+    justify-content: space-between;
 }
-header{
-    width: 1200px;
-    height: 100px;
-    margin: auto;
-    display: flex;
-    align-items: center;
-}
-header #navi{
-    margin-right: 0;
-    margin-left: auto;
-}
-.header-inner .logo{
-    font-size: 30px;
-}
-.nav-menu{
-    display: flex;
-}
-.nav-menu li {
-    margin-left: 50px;
-    list-style: none;
-}
-.mv-inner{
-    display: flex;
-    height: 400px;
-    width: 1200px;
-    margin: auto;
+
+/* layout ------ */
+#wrapper {
     position: relative;
-    /* background-color: aquamarine; */
-}
-.mv_title span{
-    font-size: 120px;
-    position: absolute;
-    display: block;
-    z-index: 10;
-}
-.mv_title span.title1{
-    top: 120px;
-    z-index: 100;
-}
-.mv_title span.title2{
-    top: 250px;
-    z-index: 100;
-}
-.mv p.sub_title{
-    font-size: 36px;
-    position: absolute;
-    top: 420px;
-}
-.mv-inner img.mv1 {
-    position: absolute;
-    top: 80px;
-    right: 250px;
-    z-index: 10;
-}
-.mv-inner img.mv2{
-    position: absolute;
-    top: 140px;
-    left: 1000px;
-    z-index: 10;
-}
-.main_profile{
-    background-color: #000;
-    width: 100%;
-    color: #fff;
-}
-.main_profile_inner{
-    width: 1200px;
-    margin: auto;
-}
-.bbs{
-    align-items: center;
-    color: #fff;
-    opacity: 0.1;
-    display: flex;
-    height: 40px;
-    line-height: 40px;
-    overflow:hidden;
-    width: 100%;
-    white-space:nowrap;
-    margin-top: 100px;
-    padding: 150px;
-    z-index: 1;
+    z-index: 2;
+    overflow: hidden;
+    min-height: 100%;
+    padding-top: 80px;
+    background: #F8F8F8;
   }
-  .bbs ul {
-    animation: flowing 130s linear infinite;
-    font-size: 20px;
-    transform:translateX(100%);
+/* @header
+----------------------------------------------------------*/
+.g-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    padding: 20px 40px 38px;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-transition: padding .5s ease-out, background-color .5s ease-out;
+    transition: padding .5s ease-out, background-color .5s ease-out;
+  }
+  .g-header.is-scroll {
+    padding-top: 18px;
+    padding-bottom: 18px;
+    background: #fff;
+  }
+  
+  /* @gnav  ----------  */
+  .g-nav {
+    padding-top: 3px;
+    font-size: .9375rem;
+  }
+  .g-nav-wrap {
+    -webkit-box-align: center;
+    align-items: center;
+  }
+  .g-nav-list li {
+    margin-left: 1em;
+  }
+  .g-nav-list a {
+    position: relative;
+    display: block;
+    padding: .5em .5em .55em;
+    color: #222;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  .g-nav-list a:hover {
+    color: #FF7B66;
+    text-decoration: underline;
+    text-underline-offset: 10px;
+  }
+  
+  .g-nav-btn {
+    margin-left: 2em;
+  }
+  .g-nav-btn li + li {
+    margin-left: 1.2em;
+  }
+  
+  /* @footer
+----------------------------------------------------------*/
+
+/* @top
+----------------------------------------------------------*/
+/* @top-mv  ---------- */
+.top-mv-con{
+    width: 100%;
+    overflow: hidden;
+}
+.top-mv-con-copy {
+    font-size: 80px;
+    line-height: 140px;
+    color: #eeeeee;
+    margin-left: -500px;
+    white-space: nowrap;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+/* top-mv-gallery_slider */
+.top-mv-gallery_slider {
+    position: relative;
+    z-index: 2;
+    line-height: 0;
+    font-size: 0;
+  }
+  .top-mv-gallery_slider .slide-item {
+    padding: 0 15px;
+  }
+  .top-mv-gallery_slider .img_wrap {
+    overflow: hidden;
+  }
+  .js-gallery_slider{
     margin: 0;
     padding: 0;
+    line-height: 0;
   }
-  .bbs ul li{
-    display: inline-block;
-    padding-right: 10px;
-    font-size: 200px;
-  }
-  @keyframes flowing {
-    0% { transform:translateX(0); }
-    100% { transform:translateX(-100%); }
-  }
-  .main_title h1{
-    font-size: 120px;
-  }
-  .main_title span{
-    font-size: 30px;
-  }
-  .profile_inner{
-    display: flex;
-    justify-content: space-between;
-    margin-top: 80px;
-  }
-  .profile_right p{
-    width: 600px;
-    line-height: 2em;
+  .top-mv .top-mv-copy{
+    text-align: center;
+    margin-top: 10px;
     font-size: 16px;
   }
-.product-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+
+
+/* オープニングアニメーション */
+.start {
+	background: #FFF;
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 9000;
 }
-.container{
-    width: 1200px;
-    margin: auto;
+.start p {
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	display: none;
+	z-index: 9999;
 }
-.product-list li{
-    list-style: none;
+
+/* 自己紹介 */
+#about{
+  width: 100%;
+  margin-top: 30px;
+  background-image: url(../img/top/Subtract.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
+  height: 100%;
 }
+.main_title .inner h2{
+  text-align: center;
+  padding-top: 150px;
+  position: relative;
+}
+.fade{
+	opacity: 0;
+	transform: translateY(50px);
+	transition: opacity 2.5s, transform 4s;
+}
+.fade.view {
+	opacity: 1;
+	transform: translateY(0px);
+}
+.main_title .inner h2::after{
+  content:"";
+  display:block;
+  width:50px;
+  height:1px;
+  margin: 0 auto;
+  margin-top: 12px;
+  background-color:#FF7B66;
+
+}
+.top-about ._jp{
+  display: block;
+  letter-spacing: 0.28em;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+.top-about .en{
+  font-size: 60px;
+  font-family: 'Inter', sans-serif;
+  font-family: 'Noto Sans JP', sans-serif;
+  letter-spacing: 0.12em;
+  line-height: 0.93em;
+  color: #FF7B66;
+}
+.about_content{
+  text-align: center;
+}
+.about_content .title{
+  margin-top: 30px;
+  font-size: 24px;
+  line-height: 2.0em;
+  letter-spacing: 0.25em;
+}
+.about_content .txt{
+  margin-top: 20px;
+  line-height: 2.2em;
+  letter-spacing: 0.15em;
+}
+a.btn-border {
+  text-decoration: none;
+  padding: 20px 50px;
+  border: 1px solid #FF7B66;
+  border-radius: 50px;
+  background: #fff;
+  color: #FF7B66;
+}
+.button{
+  margin-top: 60px;
+}
+
+a.btn-border:hover {
+  color: #fff;
+  background: #FF7B66;
+  transition: 0.5s;
+}
+
+/* 制作実績 */
+#work{
+  width: 1056px;
+  margin: 0 auto;
+  margin-top: 30px;
+  height: 100%;
+}
+#work .list{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+#work .list .contents{
+  margin-top: 40px;
+}
+
